@@ -28,7 +28,7 @@ A simple highlightjs plugin to add a fullscreenscreen button to your code blocks
     </pre>
 
     <script>
-    // Install https://github.com/arronhunt/highlightjs-copy
+    // Enable Copy plugin (https://github.com/arronhunt/highlightjs-copy)
     hljs.addPlugin(new CopyButtonPlugin());
 
     // Enable FullScreen plugin

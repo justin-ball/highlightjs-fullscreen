@@ -1,0 +1,105 @@
+/* Minimal CSS (add to your stylesheet for best results) */
+.hljs-fullscreen-wrapper {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+.hljs-fullscreen-container {
+  --hljs-theme-padding: 16px;
+  position: absolute;
+  top: 0;
+  right: 2em;
+  transition: transform 200ms ease-out;
+}
+.hljs-fullscreen-button {
+  position: relative;
+  margin: calc(var(--hljs-theme-padding) / 2);
+  width: calc(16px + var(--hljs-theme-padding));
+  height: calc(16px + var(--hljs-theme-padding));
+  font-size: 0.8125rem;
+  text-indent: -9999px; /* Hide the inner text */
+  color: var(--hljs-theme-color);
+  border-radius: 0.25rem;
+  border: 1px solid;
+  border-color: color-mix(in srgb, var(--hljs-theme-color), transparent 80%);
+  background-color: var(--hljs-theme-background);
+  transition: background-color 200ms ease;
+  overflow: hidden;
+}
+.hljs-fullscreen-button::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: currentColor;
+  mask: url('data:image/svg+xml;utf-8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d=\"M9 3H5C3.89543 3 3 3.89543 3 5V9H5V5H9V3ZM15 3V5H19V9H21V5C21 3.89543 20.1046 3 19 3H15ZM19 19H15V21H19C20.1046 21 21 20.1046 21 19V15H19V19ZM5 15H3V19C3 20.1046 3.89543 21 5 21H9V19H5V15Z\" fill=\"black\"/></svg>');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center center;
+}
+
+.hljs-fullscreen-button:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--hljs-theme-color),
+    transparent 90%
+  );
+}
+.hljs-fullscreen-button:active {
+  border-color: color-mix(in srgb, var(--hljs-theme-color), transparent 60%);
+}
+
+.hljs-fullscreen-container[data-autohide="true"] {
+  transform: translateX(calc(100% + 2.125em));
+}
+
+.hljs-fullscreen-wrapper:focus-within .hljs-fullscreen-container {
+  transition: none;
+  transform: translateX(0);
+}
+.hljs-fullscreen-wrapper:hover .hljs-fullscreen-container {
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion) {
+  .hljs-fullscreen-button {
+    transition: none;
+  }
+}
+
+/* visually-hidden */
+.hljs-fullscreen-alert {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+/*.hljs-fullscreen-wrapper { position: relative; }
+.hljs-fullscreen-container { position: absolute; top: 8px; right: 8px; z-index: 10; }
+.hljs-fullscreen-button { padding: 4px 10px; font-size: 0.9em; }
+*/
+.hljs-fullscreen-active {
+    position: fixed !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #222 !important;
+    z-index: 9999 !important;
+    overflow: auto !important;
+    padding: 2vw !important;
+}
+.hljs-fullscreen-active pre, .hljs-fullscreen-active code {
+    font-size: 10pt !important; /* Set font size to 10pt in fullscreen */
+    white-space: pre !important; /* Prevent wrapping, allow horizontal scroll */
+    max-height: 90vh !important; /* Show more output in fullscreen */
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+}

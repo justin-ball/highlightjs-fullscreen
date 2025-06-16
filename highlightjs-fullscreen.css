@@ -8,7 +8,8 @@
   --hljs-theme-padding: 16px;
   position: absolute;
   top: 0;
-  right: 2em;
+  /* places button to the left of hljs copy button. If you're not using hljs copy button, Change to `right: 0;` */
+  right: 2em; 
   transition: transform 200ms ease-out;
 }
 .hljs-fullscreen-button {
@@ -97,7 +98,7 @@
     padding: 2vw !important;
 }
 .hljs-fullscreen-active pre, .hljs-fullscreen-active code {
-    font-size: 10pt !important; /* Set font size to 10pt in fullscreen */
+    font-size: 10pt !important; /* Set font size to 10pt in fullscreen. You can also use `inherit` */
     white-space: pre !important; /* Prevent wrapping, allow horizontal scroll */
     max-height: 90vh !important; /* Show more output in fullscreen */
     overflow-x: auto !important;
